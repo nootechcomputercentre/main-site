@@ -46,3 +46,42 @@ header{display:flex;justify-content:space-between;align-items:center}
 body.admin-mode .admin-only{display:inline-flex!important}
 
 .footer-note{text-align:center;margin-top:20px;color:#9aa4b2}
+
+
+ .footer {
+      background: #0f172a;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.95rem;
+    }
+
+    .social-links {
+      margin-top: 20px;
+    }
+    .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      color: #fff;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .social-links a:hover {
+      color: #3b82f6;
+    }
+
+    .social-links img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
+
+
+
+
+
+
+
+
+
