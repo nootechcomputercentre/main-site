@@ -45,6 +45,30 @@ header{display:flex;justify-content:space-between;align-items:center}
 .admin-only{display:none!important}
 body.admin-mode .admin-only{display:inline-flex!important}
 
+.marquee-box {
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  color: lime;
+  padding: 8px 0;
+}
+
+.marquee-box p {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollText 15s linear infinite;
+}
+
+@keyframes scrollText {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+
 .footer-note{text-align:center;margin-top:20px;color:#9aa4b2}
 
 
