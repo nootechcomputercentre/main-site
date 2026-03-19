@@ -56,7 +56,7 @@ body.admin-mode .admin-only{display:inline-flex!important}
 .marquee-box h3 {
   display: inline-block;
   white-space: nowrap;
-  animation: scrollText 15s linear infinite;
+  animation: scrollText 250s linear infinite;
 }
 
 @keyframes scrollText {
