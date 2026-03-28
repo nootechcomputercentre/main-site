@@ -158,16 +158,16 @@ body.admin-mode .admin-only{display:inline-flex!important}
   margin-top:10px;
 }
 
-.socials i {
-    font-size: 22px;
-    margin: 0 10px;
-    color: white;
-    transition: 0.3s;
+.socials a {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.socials i:hover {
-    color: cyan;
-    transform: scale(1.2);
+.socials i {
+  font-size: 14px;
 }
 
 
