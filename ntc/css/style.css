@@ -45,7 +45,7 @@ header{display:flex;justify-content:space-between;align-items:center}
 .admin-only{display:none!important}
 body.admin-mode .admin-only{display:inline-flex!important}
 
-/*.footer-note{text-align:center;margin-top:20px;color:#9aa4b2}
+.footer-note{text-align:center;margin-top:20px;color:#9aa4b2}
 
 
  .footer {
@@ -75,7 +75,7 @@ body.admin-mode .admin-only{display:inline-flex!important}
       width: 24px;
       height: 24px;
       vertical-align: middle;
-    }*/
+    }
 
 /* ===== MARQUEE ===== */
 .marquee-box {
