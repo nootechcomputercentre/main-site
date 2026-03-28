@@ -2,19 +2,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nootech Computer Centre — Home</title>
- 
- <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  	<link rel="stylesheet" href="ntc/css/style.css">
+ <!-- Font Awesome for Footer Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Favicon -->
-    <link href="img/icon/nielit-icon.ico" rel="icon">
-    <!-- Google Web Fonts -->
+<style>
+/* Logo Animation */
+.logo img {
+  animation: logoAnim 3s ease-in-out infinite;
+  background: none !important; /* Remove any gradient/background */
+}
+
+@keyframes logoAnim {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.05) rotate(2deg); }
+  50% { transform: scale(1.1) rotate(0deg); }
+  75% { transform: scale(1.05) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+</style>
     
 </head>
   
@@ -508,18 +513,28 @@ Learn → Practice → Apply → Succeed</br>
 		<!-- FOOTER -->
 <div class="footer">
 
+ <div class="footer">
+
   <p>&copy; 2026 Nootech Computer Centre. All rights reserved. | Empowering Digital Literacy.</p>
 
-  <div class="socials">
+  <div class="socials" style="font-size: 22px; display:flex; gap:15px; justify-content:center; margin-top:10px;">
 
-  
+    <a href="https://www.facebook.com/profile.php?id=61567543754358" target="_blank">
+      <i class="fab fa-facebook"></i>
+    </a>
 
-    <a href="https://www.facebook.com/profile.php?id=61567543754358" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/nootechcomputercentre" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.threads.com/@nootechcomputercentre" target="_blank"><i class="fab fa-threads"></i></a>
-    <a href="https://nootechcomputercentre.github.io/main-site/" target="_blank"><i class="fas fa-globe"></i></a>
+    <a href="https://www.instagram.com/nootechcomputercentre" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
 
-  
+    <a href="https://www.threads.com/@nootechcomputercentre" target="_blank">
+      <i class="fab fa-threads"></i>
+    </a>
+
+    <a href="https://nootechcomputercentre.github.io/main-site/" target="_blank">
+      <i class="fas fa-globe"></i>
+    </a>
+
 
   </div>
 		
