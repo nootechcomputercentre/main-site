@@ -100,4 +100,8 @@ previewFile(document.getElementById('img-upload'),document.getElementById('img-b
 previewFile(document.getElementById('video-upload'),document.getElementById('video-box'));
 
 document.getElementById('year').textContent=new Date().getFullYear();
+//CLICKABLE NOTICEBOARD 
+function openNoticePage() {
+    window.open("https://nootechcomputercentre.github.io/Dashboard/", "_blank");
+}
 
