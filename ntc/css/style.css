@@ -2,7 +2,7 @@
 body{margin:0;font-family:Inter;background:#0f1724;color:#e6eef8}
 .container{max-width:1100px;margin:auto;padding:20px}
 header{display:flex;justify-content:space-between;align-items:center}
-/*.logo{width:60px;height:60px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:800}*/
+.logo{width:150px;height:60px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:800}
 .nav{display:flex;gap:8px}
 .nav-btn{padding:8px 12px;background:transparent;border:0;color:#9aa4b2;cursor:pointer}
 .nav-btn.active{color:white;background:#1f2937;border-radius:8px}
