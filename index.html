@@ -423,12 +423,22 @@ Learn → Practice → Apply → Succeed</br>
 		<!About Us Ending>
 
       </section>
-<!Notice Starting>
-      <aside class="card notice">
-        <h3><marquee behavior="alternate"><font color="red">Notice Board</font></marquee></h3>
-        <div class="notice-list" id="notice-list"></div>
-        <button class="btn admin-only" id="edit-notice-btn">Add Notice</button>
-      </aside>
+<!-- Notice Starting -->
+<aside class="card notice" onclick="openNoticePage()" style="cursor:pointer;">
+
+  <h3>
+    <marquee behavior="alternate">
+      <font color="red">Notice Board</font>
+    </marquee>
+  </h3>
+
+  <div class="notice-list" id="notice-list"></div>
+
+  <button class="btn admin-only" id="edit-notice-btn" onclick="event.stopPropagation();">
+    Add Notice
+  </button>
+
+</aside>
     </main>
 <!Footer Starting>
     <footer>
