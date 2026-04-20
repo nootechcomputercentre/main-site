@@ -119,8 +119,15 @@ body.admin-mode .admin-only{display:inline-flex!important}
 .marquee-box:hover h2 {
   animation-play-state: paused;
 }
-
 @keyframes scrollText {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
+}
+
+/* Move Elfsight WhatsApp chat to left */
+.elfsight-app-7cc3eb03-43f8-4090-a04a-41d56a3ff746 {
+    position: fixed !important;
+    left: 20px !important;
+    right: auto !important;
+    bottom: 20px !important;
 }
