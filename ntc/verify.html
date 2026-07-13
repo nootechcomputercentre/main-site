@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Certificate Verification | Nootech Computer Centre</title>
+
+<link rel="stylesheet" href="css/verify.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <img src="img/logo.png" class="logo">
+
+        <h1>NOOTECH COMPUTER CENTRE</h1>
+
+        <h2>ONLINE CERTIFICATE VERIFICATION</h2>
+
+        <div id="loading">
+
+            <h3>Verifying Certificate...</h3>
+
+        </div>
+
+        <div id="result" style="display:none;">
+
+            <div class="status" id="status"></div>
+
+            <table>
+
+                <tr>
+                    <td>Certificate No</td>
+                    <td id="certificate_no"></td>
+                </tr>
+
+                <tr>
+                    <td>Student Name</td>
+                    <td id="student_name"></td>
+                </tr>
+
+                <tr>
+                    <td>Father's Name</td>
+                    <td id="father_name"></td>
+                </tr>
+
+                <tr>
+                    <td>Course</td>
+                    <td id="course_name"></td>
+                </tr>
+
+                <tr>
+                    <td>Batch</td>
+                    <td id="batch_name"></td>
+                </tr>
+
+                <tr>
+                    <td>Percentage</td>
+                    <td id="percentage"></td>
+                </tr>
+
+                <tr>
+                    <td>Grade</td>
+                    <td id="grade"></td>
+                </tr>
+
+                <tr>
+                    <td>Result</td>
+                    <td id="result_status"></td>
+                </tr>
+
+                <tr>
+                    <td>Issue Date</td>
+                    <td id="issue_date"></td>
+                </tr>
+
+                <tr>
+                    <td>Verification Status</td>
+                    <td id="verification_status"></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <div id="notfound" style="display:none;">
+
+            <h2 style="color:red;">INVALID CERTIFICATE</h2>
+
+            <p>This Certificate does not exist in our database.</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/verify.js"></script>
+
+</body>
+</html>
