@@ -6,18 +6,70 @@ const supabase = window.supabase.createClient(
     SUPABASE_KEY
 );
 
-console.log("Supabase client created");
+async function verifyCertificate() {
 
-async function test() {
+    const params = new URLSearchParams(window.location.search);
 
-    console.log("Testing connection...");
+    const hash = params.get("id");
+
+    if (!hash) {
+
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("error").style.display = "block";
+        return;
+
+    }
 
     const { data, error } = await supabase
         .from("certificates")
-        .select("*");
+        .select("*")
+        .eq("certificate_hash", hash)
+        .single();
 
-    console.log("DATA =", data);
-    console.log("ERROR =", error);
+    document.getElementById("loading").style.display = "none";
+
+    if (error || !data) {
+
+        document.getElementById("error").style.display = "block";
+        return;
+
+    }
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("status").innerHTML =
+        "✅ CERTIFICATE VERIFIED";
+
+    document.getElementById("certificate_no").innerHTML =
+        data.certificate_no;
+
+    document.getElementById("student_name").innerHTML =
+        data.student_name;
+
+    document.getElementById("father_name").innerHTML =
+        data.father_name;
+
+    document.getElementById("course_name").innerHTML =
+        data.course_name;
+
+    document.getElementById("batch_name").innerHTML =
+        data.batch_name;
+
+    document.getElementById("percentage").innerHTML =
+        data.percentage;
+
+    document.getElementById("grade").innerHTML =
+        data.grade;
+
+    document.getElementById("result_status").innerHTML =
+        data.result;
+
+    document.getElementById("issue_date").innerHTML =
+        data.issue_date;
+
+    document.getElementById("verification_status").innerHTML =
+        data.verification_status;
+
 }
 
-test();
+verifyCertificate();
