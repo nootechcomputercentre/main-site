@@ -10,6 +10,11 @@ async function verifyCertificate() {
     const params = new URLSearchParams(window.location.search);
 
     const hash = params.get("id");
+    console.log(hash);
+    .single();
+   console.log(data);
+   console.log(error);
+    
 
     if (!hash) {
 
@@ -27,12 +32,25 @@ async function verifyCertificate() {
 
     document.getElementById("loading").style.display = "none";
 
-    if (error || !data) {
+   if(error){
 
-        document.getElementById("error").style.display = "block";
-        return;
+    console.log(error);
 
-    }
+    document.getElementById("loading").style.display="none";
+    document.getElementById("error").style.display="block";
+
+    return;
+
+}
+
+if(!data){
+
+    document.getElementById("loading").style.display="none";
+    document.getElementById("error").style.display="block";
+
+    return;
+
+}
 
     document.getElementById("result").style.display = "block";
 
