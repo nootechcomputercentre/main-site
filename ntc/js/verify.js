@@ -26,6 +26,9 @@ async function verifyCertificate() {
 
     console.log("Data:", data);
     console.log("Error:", error);
+    console.log(document.getElementById("result"));
+console.log(document.getElementById("status"));
+console.log(document.getElementById("certificate_no"));
 
     document.getElementById("loading").style.display = "none";
 
