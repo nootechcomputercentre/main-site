@@ -35,6 +35,7 @@ async function verifyCertificate() {
     }
 
     document.getElementById("result").style.display = "block";
+    alert("Reached here");
 
     document.getElementById("status").innerHTML = "✅ CERTIFICATE VERIFIED";
 
