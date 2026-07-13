@@ -1,17 +1,23 @@
 const SUPABASE_URL = "https://yzyupyrootanffzouker.supabase.co";
-
 const SUPABASE_KEY = "sb_publishable_FHztZiMDfLcDPaTnQqg51Q_p7K59PJ0";
-
+console.log("verify.js started");
 const supabase = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
 
-console.log("Verify.js Loaded");
-console.log("Supabase Client Created");
+console.log("Supabase client created");
 
-const params = new URLSearchParams(window.location.search);
+async function test() {
 
-console.log("Full URL:", window.location.href);
+    console.log("Testing connection...");
 
-console.log("Certificate ID:", params.get("id"));
+    const { data, error } = await supabase
+        .from("certificates")
+        .select("*");
+
+    console.log("DATA =", data);
+    console.log("ERROR =", error);
+}
+
+test();
