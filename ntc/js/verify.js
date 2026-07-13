@@ -1,27 +1,14 @@
-
-console.clear();
-
-console.log("STARTED");
-
 const SUPABASE_URL = "https://yzyupyrootanffzouker.supabase.co";
 const SUPABASE_KEY = "sb_publishable_FHztZiMDfLcDPaTnQqg51Q_p7K59PJ0";
-
-const client = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-);
-
-console.log("CLIENT CREATED");
-
-(async () => {
-
-    console.log("CHECKING DATABASE");
-
-    const { data, error } = await client
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+async function test() {
+  const { data, error } = await supabase
         .from("certificates")
-        .select("*");
-
+        .select("*")
+        .eq("certificate_hash","abc123xyz")
+        .single();
     console.log(data);
     console.log(error);
+}
+test();
 
-})();
