@@ -1,195 +1,103 @@
-//=====================================================
-// NOOTECH COMPUTER CENTRE
-// Certificate Verification System
-//=====================================================
-
-//============================
+// ===============================
 // SUPABASE CONFIGURATION
-//============================
+// ===============================
 
-const SUPABASE_URL =
-"https://yzyupyrootanffzouker.supabase.co";
+const SUPABASE_URL = "https://yzyupyrootanffzouker.supabase.co";
+const SUPABASE_KEY = "sb_publishable_FHztZiMDfLcDPaTnQqg51Q_p7K59PJ0";
 
-const SUPABASE_KEY =
-"sb_publishable_FHztZiMDfLcDPaTnQqg51Q_p7K59PJ0";
-
-const db = window.supabase.createClient(
+const supabase = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
 
-//============================
+// ===============================
 // VERIFY CERTIFICATE
-//============================
+// ===============================
 
 async function verifyCertificate() {
 
-    try {
+    console.log("Verify.js Started");
 
-        //-------------------------------------------------
-        // Read Certificate No from URL
-        //-------------------------------------------------
+    const params = new URLSearchParams(window.location.search);
 
-        const params = new URLSearchParams(window.location.search);
+    // URL format:
+    // verify.html?cert=NCC/000001
 
-        const certNo = params.get("cert");
+    const cert = params.get("cert");
 
-        console.log("Certificate =", certNo);
+    console.log("Certificate =", cert);
 
-        if (!certNo) {
-
-            showError();
-
-            return;
-
-        }
-
-        //-------------------------------------------------
-        // Fetch Certificate
-        //-------------------------------------------------
-
-        const { data, error } = await db
-
-            .from("certificates")
-
-            .select("*")
-
-            .eq("certificate_no", certNo)
-
-            .single();
-
-        console.log(data);
-        console.log(error);
-
-        if (error || !data) {
-
-            showError();
-
-            return;
-
-        }
-
-        //-------------------------------------------------
-        // Hide Loading
-        //-------------------------------------------------
+    if (!cert) {
 
         document.getElementById("loading").style.display = "none";
+        document.getElementById("error").style.display = "block";
 
-        document.getElementById("result").style.display = "block";
+        return;
+    }
 
-        //-------------------------------------------------
-        // VERIFIED BADGE
-        //-------------------------------------------------
+    const { data, error } = await supabase
+        .from("certificates")
+        .select("*")
+        .eq("certificate_no", cert)
+        .single();
 
-        document.getElementById("status").innerHTML =
+    console.log("DATA =", data);
+    console.log("ERROR =", error);
+
+    document.getElementById("loading").style.display = "none";
+
+    if (error || !data) {
+
+        document.getElementById("error").style.display = "block";
+
+        return;
+    }
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("status").textContent =
         "✅ CERTIFICATE VERIFIED";
 
-        //-------------------------------------------------
-        // Fill Details
-        //-------------------------------------------------
+    document.getElementById("certificate_no").textContent =
+        data.certificate_no ?? "";
 
-        setText("certificate_no",data.certificate_no);
+    document.getElementById("student_name").textContent =
+        data.student_name ?? "";
 
-        setText("student_name",data.student_name);
+    document.getElementById("father_name").textContent =
+        data.father_name ?? "";
 
-        setText("father_name",data.father_name);
+    document.getElementById("course_name").textContent =
+        data.course_name ?? "";
 
-        setText("course_name",data.course_name);
+    document.getElementById("batch_name").textContent =
+        data.batch_name ?? "";
 
-        setText("batch_name",data.batch_name);
+    document.getElementById("percentage").textContent =
+        data.percentage ?? "";
 
-        setText("percentage",data.percentage + "%");
+    document.getElementById("grade").textContent =
+        data.grade ?? "";
 
-        setText("grade",data.grade);
+    document.getElementById("result_status").textContent =
+        data.result ?? "";
 
-        setText("result_status",data.result);
+    document.getElementById("issue_date").textContent =
+        data.issue_date ?? "";
 
-        setText("issue_date",formatDate(data.issue_date));
+    document.getElementById("verification_status").textContent =
+        data.verification_status ?? "";
 
-        setText("verification_status",data.verification_status);
+    // Student Photo (Optional)
 
-        //-------------------------------------------------
-        // PHOTO
-        //-------------------------------------------------
+    const photo = document.getElementById("student_photo");
 
-        if(data.photo_url){
+    if (photo) {
 
-            document.getElementById("student_photo").src =
-            data.photo_url;
-
-        }
-
-    }
-
-    catch(ex){
-
-        console.error(ex);
-
-        showError();
+        photo.src = data.photo_url || "img/default-photo.png";
 
     }
 
 }
-
-//============================
-// SET TEXT
-//============================
-
-function setText(id,value){
-
-    const obj=document.getElementById(id);
-
-    if(obj){
-
-        obj.textContent=value ?? "";
-
-    }
-
-}
-
-//============================
-// FORMAT DATE
-//============================
-
-function formatDate(dt){
-
-    if(!dt) return "";
-
-    try{
-
-        return new Date(dt).toLocaleDateString(
-            "en-IN",
-            {
-                day:"2-digit",
-                month:"long",
-                year:"numeric"
-            }
-        );
-
-    }
-
-    catch{
-
-        return dt;
-
-    }
-
-}
-
-//============================
-// ERROR
-//============================
-
-function showError(){
-
-    document.getElementById("loading").style.display="none";
-
-    document.getElementById("result").style.display="none";
-
-    document.getElementById("error").style.display="block";
-
-}
-
-//============================
 
 verifyCertificate();
