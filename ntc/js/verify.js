@@ -95,7 +95,7 @@ async function verifyCertificate(){
 
         hide("loading");
 
-        show("result");
+       console.log("Verification Successful");
 
         //-------------------------
         // Status
@@ -136,10 +136,11 @@ async function verifyCertificate(){
         );
 
         setText(
-            "percentage",
-            data.percentage + "%"
-        );
-
+    "percentage",
+    data.percentage
+        ? data.percentage + "%"
+        : ""
+);
         setText(
             "grade",
             data.grade
@@ -178,11 +179,13 @@ async function verifyCertificate(){
                 data.photo_url.trim()!==""
             ){
 
-                photo.src =
-                data.photo_url;
+               photo.onerror = function(){
 
-            }
+    this.src = "img/gallery/logo.png";
 
+};
+
+photo.src = data.photo_url;
             else{
 
                 photo.src =
@@ -219,6 +222,12 @@ function showError(msg){
     show("error");
 
     console.error(msg);
+
+const err = document.querySelector("#error p");
+
+if(err){
+
+    err.innerHTML = msg;
 
 }
 
