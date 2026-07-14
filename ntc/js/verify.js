@@ -7,23 +7,11 @@ const supabase = window.supabase.createClient(
 
 async function verifyCertificate() {
 
-    const params = new URLSearchParams(window.location.search);
-    const hash = params.get("id");
-
-    console.log("Hash:", hash);
-
-    if (!hash) {
-        document.getElementById("loading").style.display = "none";
-        document.getElementById("error").style.display = "block";
-        return;
-    }
-
     const { data, error } = await supabase
-        .from("certificates")
-        .select("*")
-        .eq("certificate_hash", hash)
-        .single();
-
+    .from("certificates")
+    .select("*")
+    .eq("certificate_hash", "abc123xyz")
+    .single();
     console.log("Data:", data);
     console.log("Error:", error);
     console.log(document.getElementById("result"));
