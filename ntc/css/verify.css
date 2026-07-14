@@ -1,341 +1,439 @@
-/* =====================================================
-   NOOTECH COMPUTER CENTRE
-   Certificate Verification Portal
-====================================================== */
+/*=====================================================
+ NOOTECH COMPUTER CENTRE
+ ONLINE CERTIFICATE VERIFICATION
+======================================================*/
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Segoe UI",Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",Arial,sans-serif;
 }
 
 body{
 
-    background:#eef3f8;
+background:
+linear-gradient(135deg,#eaf3ff,#d7e8ff);
 
-    background-image:
-    linear-gradient(135deg,#eef3f8,#dbe8f7);
+min-height:100vh;
 
-    min-height:100vh;
+display:flex;
 
-    display:flex;
+justify-content:center;
 
-    justify-content:center;
+align-items:center;
 
-    align-items:center;
+padding:40px;
 
-    padding:40px;
+color:#222;
 
 }
 
-/* ================= PAGE ================= */
+/*==============================*/
 
 .page{
 
-    width:100%;
+width:100%;
 
-    display:flex;
+display:flex;
 
-    justify-content:center;
-
-}
-
-/* ================= CARD ================= */
-
-.card{
-
-    width:100%;
-
-    max-width:1000px;
-
-    background:#ffffff;
-
-    border-radius:15px;
-
-    box-shadow:0 10px 35px rgba(0,0,0,.18);
-
-    overflow:hidden;
-
-    border-top:8px solid #003366;
+justify-content:center;
 
 }
 
-/* ================= HEADER ================= */
+/*==============================*/
 
-.header{
+.certificate-card{
 
-    background:#003366;
+width:100%;
 
-    color:#ffffff;
+max-width:1100px;
 
-    text-align:center;
+background:#ffffff;
 
-    padding:30px;
+border-radius:18px;
+
+overflow:hidden;
+
+box-shadow:
+
+0 15px 40px rgba(0,0,0,.18);
+
+border-top:10px solid #003366;
 
 }
+
+/*==============================*/
+
+header{
+
+background:
+
+linear-gradient(
+135deg,
+#002855,
+#004080
+);
+
+padding:35px;
+
+text-align:center;
+
+color:#ffffff;
+
+}
+
+/*==============================*/
 
 .logo{
 
-    width:110px;
+width:120px;
 
-    margin-bottom:15px;
+height:auto;
 
-}
+margin-bottom:18px;
 
-.header h1{
-
-    font-size:34px;
-
-    letter-spacing:1px;
-
-    margin-bottom:10px;
+animation:pulse 2s infinite;
 
 }
 
-.header h3{
+@keyframes pulse{
 
-    color:#ffd700;
+0%{
 
-    margin-bottom:4px;
-
-}
-
-.header h4{
-
-    color:#ffffff;
-
-    margin-bottom:15px;
-
-    font-weight:normal;
+transform:scale(1);
 
 }
 
-.subtitle{
+50%{
 
-    font-size:20px;
-
-    font-weight:bold;
-
-    color:#90ee90;
+transform:scale(1.05);
 
 }
 
-/* ================= LOADING ================= */
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+/*==============================*/
+
+header h1{
+
+font-size:36px;
+
+letter-spacing:1px;
+
+margin-bottom:10px;
+
+}
+
+.tagline{
+
+color:#ffe16a;
+
+font-size:17px;
+
+margin:4px 0;
+
+}
+
+header h2{
+
+margin-top:20px;
+
+font-size:24px;
+
+color:#9cffb5;
+
+}
+
+/*==============================*/
 
 #loading{
 
-    text-align:center;
+padding:60px;
 
-    padding:60px;
+text-align:center;
 
 }
 
+/*==============================*/
+
 .loader{
 
-    width:70px;
+width:70px;
 
-    height:70px;
+height:70px;
 
-    border:8px solid #d6d6d6;
+margin:auto;
 
-    border-top:8px solid #0d6efd;
+border-radius:50%;
 
-    border-radius:50%;
+border:8px solid #d9d9d9;
 
-    margin:auto;
+border-top:8px solid #0066ff;
 
-    animation:spin 1s linear infinite;
+animation:spin 1s linear infinite;
+
+margin-bottom:20px;
 
 }
 
 @keyframes spin{
 
-    from{
+from{
 
-        transform:rotate(0deg);
-
-    }
-
-    to{
-
-        transform:rotate(360deg);
-
-    }
+transform:rotate(0deg);
 
 }
 
-/* ================= VERIFIED ================= */
+to{
 
-.verified-box{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-    padding:30px;
-
-    background:#ecfff2;
-
-    border-bottom:2px solid #28a745;
+transform:rotate(360deg);
 
 }
+
+}
+
+/*==============================*/
+
+#result{
+
+padding:35px;
+
+}
+
+/*==============================*/
+
+.verified-banner{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+padding:25px;
+
+background:#e8fff1;
+
+border-left:8px solid #00a651;
+
+border-radius:10px;
+
+margin-bottom:35px;
+
+}
+
+/*==============================*/
 
 .verified-icon{
 
-    width:80px;
+width:75px;
 
-    height:80px;
+height:75px;
 
-    border-radius:50%;
+background:#00a651;
 
-    background:#28a745;
+border-radius:50%;
 
-    color:#ffffff;
+display:flex;
 
-    display:flex;
+justify-content:center;
 
-    justify-content:center;
+align-items:center;
 
-    align-items:center;
+font-size:42px;
 
-    font-size:42px;
+color:#ffffff;
 
-    font-weight:bold;
-
-}
-
-/* ================= PROFILE ================= */
-
-.profile{
-
-    display:flex;
-
-    gap:30px;
-
-    padding:30px;
+font-weight:bold;
 
 }
 
-/* ================= PHOTO ================= */
+/*==============================*/
 
-.photo-box{
+.content{
 
-    width:220px;
+display:flex;
 
-    text-align:center;
-
-}
-
-.photo-box img{
-
-    width:180px;
-
-    height:220px;
-
-    border:4px solid #003366;
-
-    object-fit:cover;
-
-    border-radius:10px;
+gap:35px;
 
 }
 
-/* ================= DETAILS ================= */
+/*==============================*/
 
-.details{
+.photo-section{
 
-    flex:1;
+width:240px;
+
+text-align:center;
 
 }
+
+/*==============================*/
+
+#student_photo{
+
+width:200px;
+
+height:240px;
+
+border:4px solid #003366;
+
+border-radius:10px;
+
+object-fit:cover;
+
+box-shadow:
+
+0 8px 20px rgba(0,0,0,.15);
+
+}
+
+/*==============================*/
+
+.details-section{
+
+flex:1;
+
+}
+
+/*==============================*/
 
 table{
 
-    width:100%;
+width:100%;
 
-    border-collapse:collapse;
+border-collapse:collapse;
 
 }
+
+/*==============================*/
 
 table th{
 
-    width:35%;
+background:#003366;
 
-    background:#003366;
+color:#ffffff;
 
-    color:#ffffff;
+padding:14px;
 
-    padding:14px;
+width:35%;
 
-    text-align:left;
+text-align:left;
 
 }
+
+/*==============================*/
 
 table td{
 
-    padding:14px;
+padding:14px;
 
-    border:1px solid #d7d7d7;
+border:1px solid #dcdcdc;
 
-    background:#ffffff;
+background:#ffffff;
 
 }
 
-/* ================= ERROR ================= */
+/*==============================*/
+
+table tr:nth-child(even) td{
+
+background:#f7fbff;
+
+}
+
+/*==============================*/
 
 #error{
 
-    padding:60px;
-
-    text-align:center;
+padding:60px;
 
 }
 
-.invalid{
+/*==============================*/
 
-    color:red;
+.error-box{
 
-    margin-bottom:20px;
+text-align:center;
 
-}
+background:#fff3f3;
 
-/* ================= FOOTER ================= */
+padding:40px;
 
-.footer{
+border-radius:12px;
 
-    background:#f4f4f4;
-
-    text-align:center;
-
-    padding:30px;
-
-    border-top:1px solid #dddddd;
+border:2px solid red;
 
 }
 
-.footer h2{
+.error-box h2{
 
-    color:#003366;
+color:red;
 
-    margin:10px 0;
-
-}
-
-.footer p{
-
-    margin:5px 0;
-
-    color:#444444;
+margin-bottom:20px;
 
 }
 
-/* ================= RESPONSIVE ================= */
+/*==============================*/
 
-@media(max-width:850px){
+footer{
 
-.profile{
+margin-top:40px;
+
+padding:30px;
+
+text-align:center;
+
+background:#f2f5f9;
+
+border-top:2px solid #e4e4e4;
+
+}
+
+footer h2{
+
+color:#003366;
+
+margin:10px 0;
+
+}
+
+footer h3{
+
+color:#666;
+
+}
+
+footer p{
+
+margin:5px 0;
+
+}
+
+/*==============================*/
+
+hr{
+
+margin:20px 0;
+
+border:none;
+
+border-top:1px solid #d9d9d9;
+
+}
+
+/*==============================*/
+
+@media(max-width:900px){
+
+.content{
 
 flex-direction:column;
 
@@ -343,13 +441,13 @@ align-items:center;
 
 }
 
-.photo-box{
+.photo-section{
 
 width:100%;
 
 }
 
-.details{
+.details-section{
 
 width:100%;
 
@@ -357,23 +455,13 @@ width:100%;
 
 table th{
 
-width:40%;
-
-}
-
-.header h1{
-
-font-size:26px;
-
-}
-
-.subtitle{
-
-font-size:18px;
+width:42%;
 
 }
 
 }
+
+/*==============================*/
 
 @media(max-width:600px){
 
@@ -383,15 +471,27 @@ padding:10px;
 
 }
 
-.card{
+header{
 
-border-radius:8px;
+padding:20px;
 
 }
 
-.header{
+header h1{
 
-padding:20px;
+font-size:24px;
+
+}
+
+header h2{
+
+font-size:18px;
+
+}
+
+.tagline{
+
+font-size:14px;
 
 }
 
@@ -401,31 +501,16 @@ width:90px;
 
 }
 
-.header h1{
+#student_photo{
 
-font-size:22px;
+width:160px;
 
-}
-
-.header h3{
-
-font-size:16px;
-
-}
-
-.header h4{
-
-font-size:14px;
-
-}
-
-.subtitle{
-
-font-size:16px;
+height:190px;
 
 }
 
 table th,
+
 table td{
 
 padding:10px;
@@ -434,11 +519,43 @@ font-size:14px;
 
 }
 
-.photo-box img{
+.verified-banner{
 
-width:150px;
+flex-direction:column;
 
-height:180px;
+text-align:center;
+
+}
+
+}
+
+/*==============================*/
+
+@media print{
+
+body{
+
+background:#ffffff;
+
+padding:0;
+
+}
+
+.certificate-card{
+
+box-shadow:none;
+
+border:none;
+
+}
+
+header{
+
+background:#003366 !important;
+
+-webkit-print-color-adjust:exact;
+
+print-color-adjust:exact;
 
 }
 
