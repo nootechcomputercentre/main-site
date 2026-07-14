@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Certificate Verification | Nootech Computer Centre</title>
 
@@ -13,105 +14,256 @@
 
 <body>
 
-<div class="container">
+<div class="page">
 
-    <div class="card">
+<div class="card">
 
-        <img src="img/gallery/logo.png" class="logo">
+<!-- ================= HEADER ================= -->
 
-        <h1>NOOTECH COMPUTER CENTRE</h1>
+<div class="header">
 
-        <h2>ONLINE CERTIFICATE VERIFICATION</h2>
-        <p class="tagline1">
-An Authorised Learning Centre Of OKCL
+<img src="img/gallery/logo.png" class="logo">
+
+<h1>NOOTECH COMPUTER CENTRE</h1>
+
+<h3>An Authorised Learning Centre Of OKCL</h3>
+
+<h4>Authorised CSC NIELIT Facilitation Centre</h4>
+
+<p class="subtitle">
+
+ONLINE CERTIFICATE VERIFICATION
+
 </p>
 
-<p class="tagline2">
-Authorised CSC NIELIT Facilitation Centre
-</p>
-
-        <div id="loading">
-    <h3>🔄 Verifying Certificate...</h3>
 </div>
+
+<!-- ================= LOADING ================= -->
+
+<div id="loading">
+
+<div class="loader"></div>
+
+<h2>Verifying Certificate...</h2>
+
+<p>Please wait while we verify your certificate.</p>
+
+</div>
+
+<!-- ================= INVALID ================= -->
 
 <div id="error" style="display:none;">
-    <h2 style="color:red;">❌ Certificate Not Found</h2>
-    <p>This certificate does not exist or is invalid.</p>
+
+<h2 class="invalid">
+
+❌ INVALID CERTIFICATE
+
+</h2>
+
+<p>
+
+The certificate could not be verified.
+
+</p>
+
+<p>
+
+Please contact
+
+<b>Nootech Computer Centre</b>
+
+if you believe this is an error.
+
+</p>
+
 </div>
 
-        <div id="result" style="display:none;">
+<!-- ================= RESULT ================= -->
 
-            <div class="status" id="status"></div>
+<div id="result" style="display:none;">
 
-            <table>
+<div class="verified-box">
 
-                <tr>
-                    <td>Certificate No</td>
-                    <td id="certificate_no"></td>
-                </tr>
+<div class="verified-icon">
 
-                <tr>
-                    <td>Student Name</td>
-                    <td id="student_name"></td>
-                </tr>
+✔
 
-                <tr>
-                    <td>Father's Name</td>
-                    <td id="father_name"></td>
-                </tr>
+</div>
 
-                <tr>
-                    <td>Course</td>
-                    <td id="course_name"></td>
-                </tr>
+<div>
 
-                <tr>
-                    <td>Batch</td>
-                    <td id="batch_name"></td>
-                </tr>
+<h2 id="status">
 
-                <tr>
-                    <td>Percentage</td>
-                    <td id="percentage"></td>
-                </tr>
+CERTIFICATE VERIFIED
 
-                <tr>
-                    <td>Grade</td>
-                    <td id="grade"></td>
-                </tr>
+</h2>
 
-                <tr>
-                    <td>Result</td>
-                    <td id="result_status"></td>
-                </tr>
+<p>
 
-                <tr>
-                    <td>Issue Date</td>
-                    <td id="issue_date"></td>
-                </tr>
+This certificate is genuine and issued by
 
-                <tr>
-                    <td>Verification Status</td>
-                    <td id="verification_status"></td>
-                </tr>
+Nootech Computer Centre.
 
-            </table>
+</p>
 
-        </div>
+</div>
 
-        <div id="notfound" style="display:none;">
+</div>
 
-            <h2 style="color:red;">INVALID CERTIFICATE</h2>
+<hr>
 
-            <p>This Certificate does not exist in our database.</p>
+<div class="profile">
 
-        </div>
+<div class="photo-box">
 
-    </div>
+<img
+
+id="student_photo"
+
+src="img/default-photo.png"
+
+alt="Student Photo"
+
+>
+
+</div>
+
+<div class="details">
+
+<table>
+
+<tr>
+
+<th>Certificate No</th>
+
+<td id="certificate_no"></td>
+
+</tr>
+
+<tr>
+
+<th>Student Name</th>
+
+<td id="student_name"></td>
+
+</tr>
+
+<tr>
+
+<th>Father's Name</th>
+
+<td id="father_name"></td>
+
+</tr>
+
+<tr>
+
+<th>Course</th>
+
+<td id="course_name"></td>
+
+</tr>
+
+<tr>
+
+<th>Batch</th>
+
+<td id="batch_name"></td>
+
+</tr>
+
+<tr>
+
+<th>Percentage</th>
+
+<td id="percentage"></td>
+
+</tr>
+
+<tr>
+
+<th>Grade</th>
+
+<td id="grade"></td>
+
+</tr>
+
+<tr>
+
+<th>Result</th>
+
+<td id="result_status"></td>
+
+</tr>
+
+<tr>
+
+<th>Issue Date</th>
+
+<td id="issue_date"></td>
+
+</tr>
+
+<tr>
+
+<th>Status</th>
+
+<td id="verification_status"></td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="footer">
+
+<h3>
+
+Issued By
+
+</h3>
+
+<h2>
+
+NOOTECH COMPUTER CENTRE
+
+</h2>
+
+<p>
+
+Athgarh, Cuttack, Odisha
+
+</p>
+
+<p>
+
+Authorised Learning Centre Of OKCL
+
+</p>
+
+<p>
+
+CSC NIELIT Facilitation Centre
+
+</p>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script src="js/verify.js"></script>
+
 </body>
+
 </html>
