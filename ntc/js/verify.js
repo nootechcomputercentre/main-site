@@ -1,103 +1,300 @@
-// ===============================
+//====================================================
+// NOOTECH COMPUTER CENTRE
+// CERTIFICATE VERIFICATION SYSTEM
+//====================================================
+
+//=============================
 // SUPABASE CONFIGURATION
-// ===============================
+//=============================
 
-const SUPABASE_URL = "https://yzyupyrootanffzouker.supabase.co";
-const SUPABASE_KEY = "sb_publishable_FHztZiMDfLcDPaTnQqg51Q_p7K59PJ0";
+const SUPABASE_URL =
+"https://yzyupyrootanffzouker.supabase.co";
 
-const supabase = window.supabase.createClient(
+const SUPABASE_KEY =
+"sb_publishable_FHztZiMDfLcDPaTnQqg51Q_p7K59PJ0";
+
+const db = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
 
-// ===============================
+//=============================
+// PAGE LOAD
+//=============================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    verifyCertificate
+);
+
+//=============================
 // VERIFY CERTIFICATE
-// ===============================
+//=============================
 
-async function verifyCertificate() {
+async function verifyCertificate(){
 
-    console.log("Verify.js Started");
+    try{
 
-    const params = new URLSearchParams(window.location.search);
+        //-------------------------
+        // Read URL
+        //-------------------------
 
-    // URL format:
-    // verify.html?cert=NCC/000001
+        const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
-    const cert = params.get("cert");
+        const certNo =
+        params.get("cert");
 
-    console.log("Certificate =", cert);
+        console.log(
+            "Certificate Number:",
+            certNo
+        );
 
-    if (!cert) {
+        if(!certNo){
 
-        document.getElementById("loading").style.display = "none";
-        document.getElementById("error").style.display = "block";
+            return showError(
+                "Certificate Number Missing"
+            );
 
-        return;
-    }
+        }
 
-    const { data, error } = await supabase
+        //-------------------------
+        // Query Supabase
+        //-------------------------
+
+        const {data,error} =
+        await db
+
         .from("certificates")
+
         .select("*")
-        .eq("certificate_no", cert)
+
+        .eq(
+            "certificate_no",
+            certNo
+        )
+
         .single();
 
-    console.log("DATA =", data);
-    console.log("ERROR =", error);
+        console.log(data);
+        console.log(error);
 
-    document.getElementById("loading").style.display = "none";
+        if(error || !data){
 
-    if (error || !data) {
+            return showError(
+                "Certificate Not Found"
+            );
 
-        document.getElementById("error").style.display = "block";
+        }
 
-        return;
+        //-------------------------
+        // Hide Loading
+        //-------------------------
+
+        hide("loading");
+
+        show("result");
+
+        //-------------------------
+        // Status
+        //-------------------------
+
+        setText(
+            "status",
+            "✅ CERTIFICATE VERIFIED"
+        );
+
+        //-------------------------
+        // Details
+        //-------------------------
+
+        setText(
+            "certificate_no",
+            data.certificate_no
+        );
+
+        setText(
+            "student_name",
+            data.student_name
+        );
+
+        setText(
+            "father_name",
+            data.father_name
+        );
+
+        setText(
+            "course_name",
+            data.course_name
+        );
+
+        setText(
+            "batch_name",
+            data.batch_name
+        );
+
+        setText(
+            "percentage",
+            data.percentage + "%"
+        );
+
+        setText(
+            "grade",
+            data.grade
+        );
+
+        setText(
+            "result_status",
+            data.result
+        );
+
+        setText(
+            "issue_date",
+            formatDate(
+                data.issue_date
+            )
+        );
+
+        setText(
+            "verification_status",
+            data.verification_status
+        );
+
+        //-------------------------
+        // Photo
+        //-------------------------
+
+        const photo =
+        document.getElementById(
+            "student_photo"
+        );
+
+        if(photo){
+
+            if(
+                data.photo_url &&
+                data.photo_url.trim()!==""
+            ){
+
+                photo.src =
+                data.photo_url;
+
+            }
+
+            else{
+
+                photo.src =
+                "img/gallery/logo.png";
+
+            }
+
+        }
+
     }
 
-    document.getElementById("result").style.display = "block";
+    catch(ex){
 
-    document.getElementById("status").textContent =
-        "✅ CERTIFICATE VERIFIED";
+        console.error(ex);
 
-    document.getElementById("certificate_no").textContent =
-        data.certificate_no ?? "";
-
-    document.getElementById("student_name").textContent =
-        data.student_name ?? "";
-
-    document.getElementById("father_name").textContent =
-        data.father_name ?? "";
-
-    document.getElementById("course_name").textContent =
-        data.course_name ?? "";
-
-    document.getElementById("batch_name").textContent =
-        data.batch_name ?? "";
-
-    document.getElementById("percentage").textContent =
-        data.percentage ?? "";
-
-    document.getElementById("grade").textContent =
-        data.grade ?? "";
-
-    document.getElementById("result_status").textContent =
-        data.result ?? "";
-
-    document.getElementById("issue_date").textContent =
-        data.issue_date ?? "";
-
-    document.getElementById("verification_status").textContent =
-        data.verification_status ?? "";
-
-    // Student Photo (Optional)
-
-    const photo = document.getElementById("student_photo");
-
-    if (photo) {
-
-        photo.src = data.photo_url || "img/default-photo.png";
+        showError(
+            ex.message
+        );
 
     }
 
 }
 
-verifyCertificate();
+//=============================
+// SHOW ERROR
+//=============================
+
+function showError(msg){
+
+    hide("loading");
+
+    hide("result");
+
+    show("error");
+
+    console.error(msg);
+
+}
+
+//=============================
+// SHOW
+//=============================
+
+function show(id){
+
+    document
+    .getElementById(id)
+    .style.display="block";
+
+}
+
+//=============================
+// HIDE
+//=============================
+
+function hide(id){
+
+    document
+    .getElementById(id)
+    .style.display="none";
+
+}
+
+//=============================
+// SET TEXT
+//=============================
+
+function setText(id,value){
+
+    const obj=
+    document.getElementById(id);
+
+    if(obj){
+
+        obj.textContent=
+        value ?? "";
+
+    }
+
+}
+
+//=============================
+// FORMAT DATE
+//=============================
+
+function formatDate(date){
+
+    if(!date)
+    return "";
+
+    try{
+
+        return new Date(date)
+        .toLocaleDateString(
+            "en-IN",
+            {
+
+                day:"2-digit",
+
+                month:"long",
+
+                year:"numeric"
+
+            }
+        );
+
+    }
+
+    catch{
+
+        return date;
+
+    }
+
+}
