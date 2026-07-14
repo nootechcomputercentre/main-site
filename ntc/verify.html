@@ -3,12 +3,17 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
 
-<title>Certificate Verification | Nootech Computer Centre</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="css/verify.css">
+    <title>
+        Certificate Verification | Nootech Computer Centre
+    </title>
+
+    <link rel="stylesheet"
+          href="css/verify.css">
 
 </head>
 
@@ -16,45 +21,78 @@
 
 <div class="page">
 
-<div class="card">
+<div class="certificate-card">
 
-<!-- ================= HEADER ================= -->
+<!----------------------------------------------------
+HEADER
+----------------------------------------------------->
 
-<div class="header">
+<header>
 
-<img src="img/gallery/logo.png" class="logo">
+<img
+src="img/gallery/logo.png"
+class="logo"
+alt="Nootech Logo">
 
-<h1>NOOTECH COMPUTER CENTRE</h1>
+<h1>
 
-<h3>An Authorised Learning Centre Of OKCL</h3>
+NOOTECH COMPUTER CENTRE
 
-<h4>Authorised CSC NIELIT Facilitation Centre</h4>
+</h1>
 
-<p class="subtitle">
+<p class="tagline">
 
-ONLINE CERTIFICATE VERIFICATION
+An Authorised Learning Centre Of OKCL
 
 </p>
 
-</div>
+<p class="tagline">
 
-<!-- ================= LOADING ================= -->
+Authorised CSC NIELIT Facilitation Centre
 
-<div id="loading">
+</p>
+
+<h2>
+
+ONLINE CERTIFICATE VERIFICATION
+
+</h2>
+
+</header>
+
+<!----------------------------------------------------
+LOADING
+----------------------------------------------------->
+
+<section id="loading">
 
 <div class="loader"></div>
 
-<h2>Verifying Certificate...</h2>
+<h2>
 
-<p>Please wait while we verify your certificate.</p>
+Verifying Certificate...
 
-</div>
+</h2>
 
-<!-- ================= INVALID ================= -->
+<p>
 
-<div id="error" style="display:none;">
+Please wait while we verify the certificate.
 
-<h2 class="invalid">
+</p>
+
+</section>
+
+<!----------------------------------------------------
+ERROR
+----------------------------------------------------->
+
+<section
+id="error"
+style="display:none;">
+
+<div class="error-box">
+
+<h2>
 
 ❌ INVALID CERTIFICATE
 
@@ -62,27 +100,32 @@ ONLINE CERTIFICATE VERIFICATION
 
 <p>
 
-The certificate could not be verified.
+The certificate cannot be verified.
 
 </p>
 
 <p>
 
-Please contact
+If you think this is incorrect,
+please contact
 
-<b>Nootech Computer Centre</b>
-
-if you believe this is an error.
+<b>Nootech Computer Centre.</b>
 
 </p>
 
 </div>
 
-<!-- ================= RESULT ================= -->
+</section>
 
-<div id="result" style="display:none;">
+<!----------------------------------------------------
+RESULT
+----------------------------------------------------->
 
-<div class="verified-box">
+<section
+id="result"
+style="display:none;">
+
+<div class="verified-banner">
 
 <div class="verified-icon">
 
@@ -100,9 +143,14 @@ CERTIFICATE VERIFIED
 
 <p>
 
-This certificate is genuine and issued by
+This certificate is genuine and
+issued by
 
-Nootech Computer Centre.
+<b>
+
+Nootech Computer Centre
+
+</b>
 
 </p>
 
@@ -110,11 +158,13 @@ Nootech Computer Centre.
 
 </div>
 
-<hr>
+<div class="content">
 
-<div class="profile">
+<!----------------------------
+PHOTO
+----------------------------->
 
-<div class="photo-box">
+<div class="photo-section">
 
 <img
 
@@ -122,93 +172,155 @@ id="student_photo"
 
 src="img/default-photo.png"
 
-alt="Student Photo"
-
->
+alt="Student Photo">
 
 </div>
 
-<div class="details">
+<!----------------------------
+DETAILS
+----------------------------->
+
+<div class="details-section">
 
 <table>
 
 <tr>
 
-<th>Certificate No</th>
+<th>
 
-<td id="certificate_no"></td>
+Certificate No
 
-</tr>
+</th>
 
-<tr>
+<td id="certificate_no">
 
-<th>Student Name</th>
-
-<td id="student_name"></td>
+</td>
 
 </tr>
 
 <tr>
 
-<th>Father's Name</th>
+<th>
 
-<td id="father_name"></td>
+Student Name
 
-</tr>
+</th>
 
-<tr>
+<td id="student_name">
 
-<th>Course</th>
-
-<td id="course_name"></td>
+</td>
 
 </tr>
 
 <tr>
 
-<th>Batch</th>
+<th>
 
-<td id="batch_name"></td>
+Father's Name
 
-</tr>
+</th>
 
-<tr>
+<td id="father_name">
 
-<th>Percentage</th>
-
-<td id="percentage"></td>
+</td>
 
 </tr>
 
 <tr>
 
-<th>Grade</th>
+<th>
 
-<td id="grade"></td>
+Course
 
-</tr>
+</th>
 
-<tr>
+<td id="course_name">
 
-<th>Result</th>
-
-<td id="result_status"></td>
+</td>
 
 </tr>
 
 <tr>
 
-<th>Issue Date</th>
+<th>
 
-<td id="issue_date"></td>
+Batch
+
+</th>
+
+<td id="batch_name">
+
+</td>
 
 </tr>
 
 <tr>
 
-<th>Status</th>
+<th>
 
-<td id="verification_status"></td>
+Percentage
+
+</th>
+
+<td id="percentage">
+
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+
+Grade
+
+</th>
+
+<td id="grade">
+
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+
+Result
+
+</th>
+
+<td id="result_status">
+
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+
+Issue Date
+
+</th>
+
+<td id="issue_date">
+
+</td>
+
+</tr>
+
+<tr>
+
+<th>
+
+Verification Status
+
+</th>
+
+<td id="verification_status">
+
+</td>
 
 </tr>
 
@@ -218,9 +330,11 @@ alt="Student Photo"
 
 </div>
 
-<hr>
+<!----------------------------------------------------
+FOOTER
+----------------------------------------------------->
 
-<div class="footer">
+<footer>
 
 <h3>
 
@@ -248,13 +362,21 @@ Authorised Learning Centre Of OKCL
 
 <p>
 
-CSC NIELIT Facilitation Centre
+Authorised CSC NIELIT Facilitation Centre
 
 </p>
 
-</div>
+<hr>
 
-</div>
+<p>
+
+© 2026 Nootech Computer Centre
+
+</p>
+
+</footer>
+
+</section>
 
 </div>
 
