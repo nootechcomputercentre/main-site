@@ -94,7 +94,7 @@ async function verifyCertificate(){
         //-------------------------
 
         hide("loading");
-
+        show("result");
        console.log("Verification Successful");
 
         //-------------------------
@@ -186,7 +186,7 @@ async function verifyCertificate(){
 };
 
 photo.src = data.photo_url;
-            else{
+			} else{
 
                 photo.src =
                 "img/gallery/logo.png";
@@ -229,7 +229,7 @@ if(err){
 
     err.innerHTML = msg;
 
-}
+}}
 
 //=============================
 // SHOW
