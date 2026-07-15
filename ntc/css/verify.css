@@ -416,6 +416,20 @@ footer p{
 margin:5px 0;
 
 }
+footer a{
+    color:#0b3d91;
+    text-decoration:none;
+    font-weight:600;
+}
+
+footer a:hover{
+    text-decoration:underline;
+}
+
+footer p{
+    margin:6px 0;
+    line-height:1.6;
+}
 
 /*==============================*/
 
